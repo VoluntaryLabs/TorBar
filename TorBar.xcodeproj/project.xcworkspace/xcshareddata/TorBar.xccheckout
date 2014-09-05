@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>26713DD9-1ECC-4630-B98F-90BA2891D7DC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TorBar</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>082ED1AF-D213-4D09-A96D-C6446048BACD</key>
+		<string>ssh://github.com/stevedekorte/FoundationCategoriesKit.git</string>
+		<key>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</key>
+		<string>https://github.com/wanderingstan/IPMenuletExample.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TorBar.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>082ED1AF-D213-4D09-A96D-C6446048BACD</key>
+		<string>../../submodules/FoundationCategoriesKit</string>
+		<key>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wanderingstan/IPMenuletExample.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>082ED1AF-D213-4D09-A96D-C6446048BACD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FoundationCategoriesKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TorBar</string>
+		</dict>
+	</array>
+</dict>
+</plist>
