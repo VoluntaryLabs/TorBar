@@ -5,15 +5,17 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>26713DD9-1ECC-4630-B98F-90BA2891D7DC</string>
+	<string>6CF32FC4-EBAC-46C3-A903-ECF9D60C9B36</string>
 	<key>IDESourceControlProjectName</key>
 	<string>TorBar</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>082ED1AF-D213-4D09-A96D-C6446048BACD</key>
 		<string>ssh://github.com/stevedekorte/FoundationCategoriesKit.git</string>
-		<key>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</key>
-		<string>https://github.com/wanderingstan/IPMenuletExample.git</string>
+		<key>4999D99A-E794-468A-B334-1FDD6CF9EC8B</key>
+		<string>ssh://github.com/Voluntarynet/TorServerKit.git</string>
+		<key>E7D6CC23-3F2D-4FE8-9742-56C7EE862A94</key>
+		<string>ssh://github.com/Voluntarynet/TorBar.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TorBar.xcodeproj/project.xcworkspace</string>
@@ -21,15 +23,17 @@
 	<dict>
 		<key>082ED1AF-D213-4D09-A96D-C6446048BACD</key>
 		<string>../../submodules/FoundationCategoriesKit</string>
-		<key>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</key>
+		<key>4999D99A-E794-468A-B334-1FDD6CF9EC8B</key>
+		<string>../../submodules/TorServerKit</string>
+		<key>E7D6CC23-3F2D-4FE8-9742-56C7EE862A94</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/wanderingstan/IPMenuletExample.git</string>
+	<string>ssh://github.com/Voluntarynet/TorBar.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</string>
+	<string>E7D6CC23-3F2D-4FE8-9742-56C7EE862A94</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -44,9 +48,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E47FC3AB-A2B8-4187-9C0B-CBE2CE698B33</string>
+			<string>E7D6CC23-3F2D-4FE8-9742-56C7EE862A94</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TorBar</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4999D99A-E794-468A-B334-1FDD6CF9EC8B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TorServerKit</string>
 		</dict>
 	</array>
 </dict>
