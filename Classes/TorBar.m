@@ -20,11 +20,20 @@
 {
     [self setupStatusItem];
     [self setupTor];
-    [self updateStatus];
     //[self.torProcess launch];
 
     
     [self listenForNetworkChange];
+    [self startUpdateTimer];
+}
+
+- (void)startUpdateTimer
+{
+    _updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                  target:self
+                                                selector:@selector(updateStatus)
+                                                userInfo:nil
+                                                 repeats:YES];
 }
 
 - (void)listenForNetworkChange
@@ -47,8 +56,10 @@
 	
 	[_statusItem setAction:@selector(clickedOnStatusItem:)];
 	[_statusItem setTarget:self];
+}
 
-		
+- (void)setStatusItemIcon
+{
 	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
 	NSString *path = [bundle pathForResource:@"AppIcon" ofType:@"tif"];
 	_menuIcon= [[NSImage alloc] initWithContentsOfFile:path];
@@ -73,43 +84,55 @@
 
 - (void)toggleTorRunning
 {
-    if (_torProcess.isRunning)
-    {
-        [_torProcess terminate];
-    }
-    else
-    {
-        [_torProcess launch];
-    }
+    [self setRunning:!_torProcess.isRunning];
     
-    [self updateStatus];
     [self updatePref];
 }
 
+- (void)setRunning:(BOOL)doRun
+{
+    if (doRun && _networkMonitor.ssid != nil)
+    {
+        [_torProcess launch];
+    }
+    else
+    {
+        [_torProcess terminate];
+    }
+
+    [self updateStatus];
+}
+
+- (void)setStatusTitle:(NSString *)aTitle
+{
+    if (![_statusItem.title isEqualTo:aTitle])
+    {
+        [_statusItem setTitle:aTitle];
+    }
+}
 - (void)updateStatus
 {
     if (_torProcess.isRunning)
     {
-        [_statusItem setTitle:@"running"];
+        [self setStatusTitle:@"tor on"];
     }
     else
     {
-        [_statusItem setTitle:@"stopped"];
+        if (_networkMonitor.ssid == nil)
+        {
+            [self setStatusTitle:@"tor off (no network)"];
+        }
+        else
+        {
+            [self setStatusTitle:@"tor off"];
+        }
     }
 }
 
 - (void)networkChanged:(NSNotification *)aNote
 {
-    if ([self shouldRunForNetworkName:_networkMonitor.ssid])
-    {
-        [_torProcess launch];
-    }
-    else
-    {
-        [_torProcess terminate];
-    }
-    
-    [self updateStatus];
+    BOOL doRun = [self shouldRunForNetworkName:_networkMonitor.ssid];
+    [self setRunning:doRun];
 }
 
 - (void)setShouldRun:(BOOL)shouldRun forNetworkName:(NSString *)networkName
@@ -122,6 +145,11 @@
 
 - (BOOL)shouldRunForNetworkName:(NSString *)networkName
 {
+    if (networkName == nil)
+    {
+        return NO;
+    }
+    
     NSDictionary *dict = self.prefsDict;
     NSNumber *aBool = [dict objectForKey:networkName];
     

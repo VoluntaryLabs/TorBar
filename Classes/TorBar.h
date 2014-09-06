@@ -14,5 +14,6 @@
 @property (strong) NSImage *menuIcon;
 @property (strong) TorProcess *torProcess;
 @property (strong) NetworkMonitor *networkMonitor;
+@property (strong) NSTimer *updateTimer;
 
 @end
