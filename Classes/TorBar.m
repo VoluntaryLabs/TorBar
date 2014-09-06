@@ -21,6 +21,8 @@
     [self setupTor];
     [self updateStatus];
     //[self.torProcess launch];
+    _networkMonitor = [[NetworkMonitor alloc] init];
+    [_networkMonitor start];
 }
 
 - (void)setupStatusItem
