@@ -13,6 +13,7 @@
 -(void)dealloc
 {
     [self.torProcess terminate];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)awakeFromNib
@@ -21,8 +22,19 @@
     [self setupTor];
     [self updateStatus];
     //[self.torProcess launch];
+
+    
+    [self listenForNetworkChange];
+}
+
+- (void)listenForNetworkChange
+{
     _networkMonitor = [[NetworkMonitor alloc] init];
     [_networkMonitor start];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:)
+                                                 name:NetworkMonitorChangeNotification
+                                               object:_networkMonitor];
 }
 
 - (void)setupStatusItem
@@ -71,6 +83,7 @@
     }
     
     [self updateStatus];
+    [self updatePref];
 }
 
 - (void)updateStatus
@@ -85,5 +98,67 @@
     }
 }
 
+- (void)networkChanged:(NSNotification *)aNote
+{
+    if ([self shouldRunForNetworkName:_networkMonitor.ssid])
+    {
+        [_torProcess launch];
+    }
+    else
+    {
+        [_torProcess terminate];
+    }
+    
+    [self updateStatus];
+}
+
+- (void)setShouldRun:(BOOL)shouldRun forNetworkName:(NSString *)networkName
+{
+    NSNumber *aBool = [NSNumber numberWithBool:shouldRun];
+    NSMutableDictionary *dict = self.prefsDict;
+    [dict setObject:aBool forKey:networkName];
+    [self setPrefsDict:dict];
+}
+
+- (BOOL)shouldRunForNetworkName:(NSString *)networkName
+{
+    NSDictionary *dict = self.prefsDict;
+    NSNumber *aBool = [dict objectForKey:networkName];
+    
+    if (aBool)
+    {
+        return aBool.boolValue;
+    }
+    
+    return NO;
+}
+
+- (void)updatePref
+{
+    if (_networkMonitor.ssid)
+    {
+        [self setShouldRun:_torProcess.isRunning forNetworkName:_networkMonitor.ssid];
+    }
+}
+
+// prefs dict
+
+- (NSMutableDictionary *)prefsDict
+{
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"networkPrefs"];
+    
+    if (dict)
+    {
+        return [NSMutableDictionary dictionaryWithDictionary:dict];
+    }
+    
+    return [NSMutableDictionary dictionary];
+}
+
+- (void)setPrefsDict:(NSDictionary *)dict
+{
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"networkPrefs"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 @end

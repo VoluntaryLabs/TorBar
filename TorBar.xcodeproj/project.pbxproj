@@ -14,7 +14,6 @@
 		AA0217C719B9E67C008C9ADB /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE0D7BF19B9E4D000D7E85F /* FoundationCategoriesKit.framework */; };
 		AA0217CA19B9E6A3008C9ADB /* TorServerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0D7AB19B9CF7F00D7E85F /* TorServerKit.framework */; };
 		AA0217CB19B9E6B6008C9ADB /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0D7BF19B9E4D000D7E85F /* FoundationCategoriesKit.framework */; };
-		AA9AA5D819BADFC900B5B498 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5D719BADFC900B5B498 /* Reachability.m */; };
 		AA9AA5E119BADFDA00B5B498 /* TorBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5DE19BADFDA00B5B498 /* TorBar.m */; };
 		AA9AA5E219BADFDA00B5B498 /* TorBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */; };
 		AA9AA5E419BAE03E00B5B498 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9AA5E319BAE03E00B5B498 /* SystemConfiguration.framework */; };
@@ -79,8 +78,6 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* TorBar-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TorBar-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TorBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TorBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA9AA5D619BADFC900B5B498 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Reachability.h; sourceTree = "<group>"; };
-		AA9AA5D719BADFC900B5B498 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability.m; sourceTree = "<group>"; };
 		AA9AA5DD19BADFDA00B5B498 /* TorBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorBar.h; path = Classes/TorBar.h; sourceTree = "<group>"; };
 		AA9AA5DE19BADFDA00B5B498 /* TorBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorBar.m; path = Classes/TorBar.m; sourceTree = "<group>"; };
 		AA9AA5DF19BADFDA00B5B498 /* TorBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorBarDelegate.h; path = Classes/TorBarDelegate.h; sourceTree = "<group>"; };
@@ -115,8 +112,6 @@
 				AA9AA5DE19BADFDA00B5B498 /* TorBar.m */,
 				AA9AA5DF19BADFDA00B5B498 /* TorBarDelegate.h */,
 				AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */,
-				AA9AA5D619BADFC900B5B498 /* Reachability.h */,
-				AA9AA5D719BADFC900B5B498 /* Reachability.m */,
 				AA9AA5E819BAE5B600B5B498 /* NetworkMonitor.h */,
 				AA9AA5E919BAE5B600B5B498 /* NetworkMonitor.m */,
 			);
@@ -322,7 +317,6 @@
 				AA9AA5EA19BAE5B600B5B498 /* NetworkMonitor.m in Sources */,
 				AA9AA5E119BADFDA00B5B498 /* TorBar.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				AA9AA5D819BADFC900B5B498 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

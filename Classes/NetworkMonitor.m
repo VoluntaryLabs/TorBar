@@ -46,36 +46,57 @@
     }
 }
 
-- (id)fetchSSIDInfo
+- (void)fetchSSIDInfo
 {
-    //CFArrayRef array = CNCopySupportedInterfaces();
-    NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
-    NSLog(@"Supported interfaces: %@", ifs);
+    NSTask *task = [[NSTask alloc] init];
     
-    /*
-    id info = nil;
-    NSString *ifnam = @"";
+    [task setCurrentDirectoryPath:@"/"];
+    [task setLaunchPath:@"/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"];
+    [task setArguments:@[@"-I"]];
     
-    for (ifnam in ifs)
+    NSPipe * out = [NSPipe pipe];
+    [task setStandardOutput:out];
+    
+    [task launch];
+    [task waitUntilExit];
+    
+    NSFileHandle *read = [out fileHandleForReading];
+    NSData *dataRead = [read readDataToEndOfFile];
+    NSString *stringRead = [[NSString alloc] initWithData:dataRead encoding:NSUTF8StringEncoding];
+    //NSLog(@"output: '%@'", stringRead);
+
+    // find SSID
+    NSArray *lines = [stringRead componentsSeparatedByString:@"\n"];
+    NSString *prefix = @"           SSID: ";
+    NSString *ssid = nil;
+    
+    for (NSString *line in lines)
     {
-        info = (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
-        NSLog(@"%@ => %@", ifnam, info);
-        
-        if (info && [info count])
+        if ([line hasPrefix:prefix])
         {
+            ssid = [line substringWithRange:NSMakeRange(prefix.length, line.length - prefix.length)];
             break;
         }
     }
     
-    if ([info count] >= 1 && [ifnam caseInsensitiveCompare:_prevSSID] !=  NSOrderedSame)
+    [self setSSID:ssid];
+}
+
+- (void)setSSID:(NSString *)newSsid
+{
+    // update if it's changed
+    if (
+        _ssid != newSsid
+        && ![_ssid isEqualToString:newSsid]
+        )
     {
-        // Trigger some event
-        _prevSSID = ifnam;
+        NSLog(@"changedNetwork to '%@'", newSsid);
+        
+        _ssid = newSsid;
+        [[NSNotificationCenter defaultCenter] postNotificationName:NetworkMonitorChangeNotification
+                                                            object:self
+                                                          userInfo:nil];
     }
-    return info;
-    */
-    
-    return nil;
 }
 
 @end

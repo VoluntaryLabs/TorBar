@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define NetworkMonitorChangeNotification @"NetworkMonitorChange"
-
 @interface NetworkMonitor : NSObject
 
+@property (strong) NSString *prevSSID;
 @property (strong) NSTimer *ssidTimer;
-@property (strong) NSString *ssid;
 
 - (void)start;
 - (void)stop;
