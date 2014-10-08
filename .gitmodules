@@ -4,3 +4,6 @@
 [submodule "submodules/TorServerKit"]
 	path = submodules/TorServerKit
 	url = git@github.com:Voluntarynet/TorServerKit.git
+[submodule "submodules/SystemInfoKit"]
+	path = submodules/SystemInfoKit
+	url = git@github.com:Voluntarynet/SystemInfoKit.git

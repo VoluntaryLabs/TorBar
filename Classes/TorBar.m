@@ -38,11 +38,11 @@
 
 - (void)listenForNetworkChange
 {
-    _networkMonitor = [[NetworkMonitor alloc] init];
+    _networkMonitor = [[SINetworkMonitor alloc] init];
     [_networkMonitor start];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:)
-                                                 name:NetworkMonitorChangeNotification
+                                                 name:SINetworkMonitorChangeNotification
                                                object:_networkMonitor];
 }
 
@@ -56,6 +56,15 @@
 	
 	[_statusItem setAction:@selector(clickedOnStatusItem:)];
 	[_statusItem setTarget:self];
+    
+    /*
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@"StatusMenu"];
+    _toggleMenuItem = [[NSMenuItem alloc] initWithTitle:@"tor on" action:@selector(toggleTorRunning) keyEquivalent:@""];
+    [_toggleMenuItem setTarget:self];
+    [menu addItem:_toggleMenuItem];
+    
+    [_statusItem setMenu:menu];
+     */
 }
 
 - (void)setStatusItemIcon
@@ -112,21 +121,36 @@
 }
 - (void)updateStatus
 {
+    NSString *status = @"";
+    
     if (_torProcess.isRunning)
     {
-        [self setStatusTitle:@"tor on"];
+//        status = @"tor on";
+        status = [NSString stringWithFormat:@"tor on (%@)", _networkMonitor.ssid];
+        
+        
+        /*
+        NSNumber *bps = _torProcess.bpsRead;
+        
+        if (bps.integerValue)
+        {
+            status = [NSString stringWithFormat:@"%@ %iKbps", status, bps.intValue/(8*1024)];
+        }
+        */
     }
     else
     {
         if (_networkMonitor.ssid == nil)
         {
-            [self setStatusTitle:@"tor off (no network)"];
+            status = @"tor off (no network)";
         }
         else
         {
-            [self setStatusTitle:@"tor off"];
+            status = @"tor off";
         }
     }
+    
+    [self setStatusTitle:status];
 }
 
 - (void)networkChanged:(NSNotification *)aNote

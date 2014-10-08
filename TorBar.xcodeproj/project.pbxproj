@@ -11,14 +11,15 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		AA0217C719B9E67C008C9ADB /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE0D7BF19B9E4D000D7E85F /* FoundationCategoriesKit.framework */; };
 		AA0217CA19B9E6A3008C9ADB /* TorServerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0D7AB19B9CF7F00D7E85F /* TorServerKit.framework */; };
-		AA0217CB19B9E6B6008C9ADB /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0D7BF19B9E4D000D7E85F /* FoundationCategoriesKit.framework */; };
 		AA9AA5E119BADFDA00B5B498 /* TorBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5DE19BADFDA00B5B498 /* TorBar.m */; };
 		AA9AA5E219BADFDA00B5B498 /* TorBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */; };
 		AA9AA5E419BAE03E00B5B498 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9AA5E319BAE03E00B5B498 /* SystemConfiguration.framework */; };
-		AA9AA5EA19BAE5B600B5B498 /* NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5E919BAE5B600B5B498 /* NetworkMonitor.m */; };
-		AAE0D7AE19B9CF8C00D7E85F /* TorServerKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE0D7AB19B9CF7F00D7E85F /* TorServerKit.framework */; };
+		AAD0C08419E371E800B24217 /* TorServerKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE0D7AB19B9CF7F00D7E85F /* TorServerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAE3CFEA19E4B4DD00B1B761 /* SystemInfoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */; };
+		AAE3CFEB19E4B4F000B1B761 /* SystemInfoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAE3CFF519E4B76700B1B761 /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE3CFF219E4B63A00B1B761 /* FoundationCategoriesKit.framework */; };
+		AAE3CFF619E4B76C00B1B761 /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE3CFF219E4B63A00B1B761 /* FoundationCategoriesKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F6ACF3EA165FF50400C0113D /* AppIcon.tif in Resources */ = {isa = PBXBuildFile; fileRef = F6ACF3E9165FF50400C0113D /* AppIcon.tif */; };
 /* End PBXBuildFile section */
 
@@ -37,16 +38,30 @@
 			remoteGlobalIDString = AA0F303819B9C94E0010FD4A;
 			remoteInfo = TorServerKitTests;
 		};
-		AAE0D7BE19B9E4D000D7E85F /* PBXContainerItemProxy */ = {
+		AAE3CFE619E4B4B500B1B761 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AAE0D7B919B9E4D000D7E85F /* FoundationCategoriesKit.xcodeproj */;
+			containerPortal = AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAD0C0A519E48B4400B24217;
+			remoteInfo = SystemInfoKit;
+		};
+		AAE3CFE819E4B4B500B1B761 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAD0C0B019E48B4400B24217;
+			remoteInfo = SystemInfoKitTests;
+		};
+		AAE3CFF119E4B63A00B1B761 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AAE31E8D18FF1E3F00405754;
 			remoteInfo = FoundationCategoriesKit;
 		};
-		AAE0D7C019B9E4D000D7E85F /* PBXContainerItemProxy */ = {
+		AAE3CFF319E4B63A00B1B761 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AAE0D7B919B9E4D000D7E85F /* FoundationCategoriesKit.xcodeproj */;
+			containerPortal = AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AAE31EA418FF1E3F00405754;
 			remoteInfo = FoundationCategoriesKitTests;
@@ -60,8 +75,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA0217C719B9E67C008C9ADB /* FoundationCategoriesKit.framework in CopyFiles */,
-				AAE0D7AE19B9CF8C00D7E85F /* TorServerKit.framework in CopyFiles */,
+				AAE3CFF619E4B76C00B1B761 /* FoundationCategoriesKit.framework in CopyFiles */,
+				AAE3CFEB19E4B4F000B1B761 /* SystemInfoKit.framework in CopyFiles */,
+				AAD0C08419E371E800B24217 /* TorServerKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +99,9 @@
 		AA9AA5DF19BADFDA00B5B498 /* TorBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorBarDelegate.h; path = Classes/TorBarDelegate.h; sourceTree = "<group>"; };
 		AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorBarDelegate.m; path = Classes/TorBarDelegate.m; sourceTree = "<group>"; };
 		AA9AA5E319BAE03E00B5B498 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		AA9AA5E819BAE5B600B5B498 /* NetworkMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMonitor.h; path = Classes/NetworkMonitor.h; sourceTree = "<group>"; };
-		AA9AA5E919BAE5B600B5B498 /* NetworkMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkMonitor.m; path = Classes/NetworkMonitor.m; sourceTree = "<group>"; };
 		AAE0D7A519B9CF7F00D7E85F /* TorServerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TorServerKit.xcodeproj; path = submodules/TorServerKit/TorServerKit.xcodeproj; sourceTree = "<group>"; };
-		AAE0D7B919B9E4D000D7E85F /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = submodules/FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
+		AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SystemInfoKit.xcodeproj; path = submodules/SystemInfoKit/SystemInfoKit.xcodeproj; sourceTree = "<group>"; };
+		AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = submodules/FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
 		F6ACF3E9165FF50400C0113D /* AppIcon.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = AppIcon.tif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,8 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE3CFF519E4B76700B1B761 /* FoundationCategoriesKit.framework in Frameworks */,
+				AAE3CFEA19E4B4DD00B1B761 /* SystemInfoKit.framework in Frameworks */,
 				AA9AA5E419BAE03E00B5B498 /* SystemConfiguration.framework in Frameworks */,
-				AA0217CB19B9E6B6008C9ADB /* FoundationCategoriesKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				AA0217CA19B9E6A3008C9ADB /* TorServerKit.framework in Frameworks */,
 			);
@@ -112,8 +128,6 @@
 				AA9AA5DE19BADFDA00B5B498 /* TorBar.m */,
 				AA9AA5DF19BADFDA00B5B498 /* TorBarDelegate.h */,
 				AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */,
-				AA9AA5E819BAE5B600B5B498 /* NetworkMonitor.h */,
-				AA9AA5E919BAE5B600B5B498 /* NetworkMonitor.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -150,8 +164,9 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				AAE0D7B919B9E4D000D7E85F /* FoundationCategoriesKit.xcodeproj */,
+				AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */,
 				AAE0D7A519B9CF7F00D7E85F /* TorServerKit.xcodeproj */,
+				AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -197,11 +212,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAE0D7BA19B9E4D000D7E85F /* Products */ = {
+		AAE3CFE219E4B4B500B1B761 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAE0D7BF19B9E4D000D7E85F /* FoundationCategoriesKit.framework */,
-				AAE0D7C119B9E4D000D7E85F /* FoundationCategoriesKitTests.xctest */,
+				AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */,
+				AAE3CFE919E4B4B500B1B761 /* SystemInfoKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAE3CFED19E4B63A00B1B761 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAE3CFF219E4B63A00B1B761 /* FoundationCategoriesKit.framework */,
+				AAE3CFF419E4B63A00B1B761 /* FoundationCategoriesKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,8 +273,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AAE0D7BA19B9E4D000D7E85F /* Products */;
-					ProjectRef = AAE0D7B919B9E4D000D7E85F /* FoundationCategoriesKit.xcodeproj */;
+					ProductGroup = AAE3CFED19E4B63A00B1B761 /* Products */;
+					ProjectRef = AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */;
+				},
+				{
+					ProductGroup = AAE3CFE219E4B4B500B1B761 /* Products */;
+					ProjectRef = AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */;
 				},
 				{
 					ProductGroup = AAE0D7A619B9CF7F00D7E85F /* Products */;
@@ -279,18 +307,32 @@
 			remoteRef = AAE0D7AC19B9CF7F00D7E85F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AAE0D7BF19B9E4D000D7E85F /* FoundationCategoriesKit.framework */ = {
+		AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SystemInfoKit.framework;
+			remoteRef = AAE3CFE619E4B4B500B1B761 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AAE3CFE919E4B4B500B1B761 /* SystemInfoKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SystemInfoKitTests.xctest;
+			remoteRef = AAE3CFE819E4B4B500B1B761 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AAE3CFF219E4B63A00B1B761 /* FoundationCategoriesKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = FoundationCategoriesKit.framework;
-			remoteRef = AAE0D7BE19B9E4D000D7E85F /* PBXContainerItemProxy */;
+			remoteRef = AAE3CFF119E4B63A00B1B761 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AAE0D7C119B9E4D000D7E85F /* FoundationCategoriesKitTests.xctest */ = {
+		AAE3CFF419E4B63A00B1B761 /* FoundationCategoriesKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = FoundationCategoriesKitTests.xctest;
-			remoteRef = AAE0D7C019B9E4D000D7E85F /* PBXContainerItemProxy */;
+			remoteRef = AAE3CFF319E4B63A00B1B761 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -314,7 +356,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9AA5E219BADFDA00B5B498 /* TorBarDelegate.m in Sources */,
-				AA9AA5EA19BAE5B600B5B498 /* NetworkMonitor.m in Sources */,
 				AA9AA5E119BADFDA00B5B498 /* TorBar.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 			);
@@ -349,6 +390,7 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -369,6 +411,7 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TorBar_Prefix.pch;
