@@ -12,7 +12,11 @@
 @interface TorBar : NSObject
 
 @property (strong) NSStatusItem *statusItem;
-@property (strong) NSImage *menuIcon;
+@property (strong) NSMenu *menu;
+@property (strong) NSMenuItem *launchMenuItem;
+
+//@property (strong) NSImage *menuIcon;
+
 @property (strong) TorProcess *torProcess;
 @property (strong) SINetworkMonitor *networkMonitor;
 @property (strong) NSTimer *updateTimer;

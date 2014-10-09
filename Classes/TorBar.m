@@ -57,16 +57,25 @@
 	[_statusItem setAction:@selector(clickedOnStatusItem:)];
 	[_statusItem setTarget:self];
     
-    /*
     NSMenu *menu = [[NSMenu alloc] initWithTitle:@"StatusMenu"];
-    _toggleMenuItem = [[NSMenuItem alloc] initWithTitle:@"tor on" action:@selector(toggleTorRunning) keyEquivalent:@""];
+    [_statusItem setMenu:menu];
+    
+    _toggleMenuItem = [[NSMenuItem alloc] initWithTitle:@"Run Tor" action:@selector(toggleTorRunning) keyEquivalent:@""];
     [_toggleMenuItem setTarget:self];
     [menu addItem:_toggleMenuItem];
+    [menu setAutoenablesItems:NO];
     
-    [_statusItem setMenu:menu];
-     */
+    _launchMenuItem = [[NSMenuItem alloc] initWithTitle:@"Launch On Login" action:@selector(toggleLaunchOnLogin:) keyEquivalent:@""];
+    [_launchMenuItem setTarget:self];
+    [menu addItem:_launchMenuItem];
+    [self updateLaunchMenuItem];
+    
+    NSMenuItem *quitMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
+    [quitMenuItem setTarget:self];
+    [menu addItem:quitMenuItem];
 }
 
+/*
 - (void)setStatusItemIcon
 {
 	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -75,6 +84,7 @@
 	[_statusItem setTitle:@""];
 	[_statusItem setImage:_menuIcon];
 }
+*/
 
 - (void)setupTor
 {
@@ -85,6 +95,9 @@
     _torProcess.torPort = [mainBundle objectForInfoDictionaryKey:@"TorPort"];
     _torProcess.serverDataFolder = dataPath;
 }
+
+// menu actions
+
 
 - (IBAction)clickedOnStatusItem:(id)sender
 {
@@ -112,6 +125,13 @@
     [self updateStatus];
 }
 
+- (IBAction)quit:(id)sender
+{
+    [NSApplication.sharedApplication terminate:self];
+}
+
+// status
+
 - (void)setStatusTitle:(NSString *)aTitle
 {
     if (![_statusItem.title isEqualTo:aTitle])
@@ -119,15 +139,16 @@
         [_statusItem setTitle:aTitle];
     }
 }
+
 - (void)updateStatus
 {
+    NSString *mainStatus = @"";
     NSString *status = @"";
-    
+
     if (_torProcess.isRunning)
     {
-//        status = @"tor on";
-        status = [NSString stringWithFormat:@"tor on (%@)", _networkMonitor.ssid];
-        
+        mainStatus = @"Tor On";
+        status = [NSString stringWithFormat:@"Run On (%@)", _networkMonitor.ssid];
         
         /*
         NSNumber *bps = _torProcess.bpsRead;
@@ -137,20 +158,38 @@
             status = [NSString stringWithFormat:@"%@ %iKbps", status, bps.intValue/(8*1024)];
         }
         */
+        [_toggleMenuItem setState:NSOnState];
+        [_toggleMenuItem setEnabled:YES];
     }
     else
     {
+        [_toggleMenuItem setState:NSOffState];
+
         if (_networkMonitor.ssid == nil)
         {
-            status = @"tor off (no network)";
+            mainStatus = @"Tor Off (No Network)";
+            status = @"Run On (No Network)";
+           [_toggleMenuItem setEnabled:NO];
         }
         else
         {
-            status = @"tor off";
+            mainStatus = @"Tor Off";
+            status = [NSString stringWithFormat:@"Run On (%@)", _networkMonitor.ssid];
+            [_toggleMenuItem setState:NSOffState];
+            [_toggleMenuItem setEnabled:YES];
         }
     }
     
-    [self setStatusTitle:status];
+    [self setStatusTitle:mainStatus];
+    [self setToggleTitle:status];
+}
+
+- (void)setToggleTitle:(NSString *)aTitle
+{
+    if (![_toggleMenuItem.title isEqualTo:aTitle])
+    {
+        [_toggleMenuItem setTitle:aTitle];
+    }
 }
 
 - (void)networkChanged:(NSNotification *)aNote
@@ -209,8 +248,111 @@
 
 - (void)setPrefsDict:(NSDictionary *)dict
 {
-    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"networkPrefs"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUserDefaults.standardUserDefaults setObject:dict forKey:@"networkPrefs"];
+    [NSUserDefaults.standardUserDefaults synchronize];
+}
+
+// launchOnLogin
+
+- (void)updateLaunchMenuItem
+{
+    int state = self.launchOnLogin ? NSOnState : NSOffState;
+    
+    if (_launchMenuItem.state != state)
+    {
+        [_launchMenuItem setState:state];
+        
+        if (state == NSOnState)
+        {
+            [self addAppAsLoginItem];
+        }
+        else
+        {
+            [self deleteAppFromLoginItem];
+        }
+    }
+}
+
+- (IBAction)toggleLaunchOnLogin:(id)sender
+{
+    [self setLaunchOnLogin:!self.launchOnLogin];
+}
+
+- (BOOL)launchOnLogin
+{
+    return [NSUserDefaults.standardUserDefaults boolForKey:@"launchOnLogin"];
+}
+
+- (void)setLaunchOnLogin:(BOOL)aBool
+{
+    [NSUserDefaults.standardUserDefaults setBool:aBool forKey:@"launchOnLogin"];
+    [NSUserDefaults.standardUserDefaults synchronize];
+    [self updateLaunchMenuItem];
+}
+
+
+- (void)addAppAsLoginItem
+{
+    NSString * appPath = [[NSBundle mainBundle] bundlePath];
+    
+    // This will retrieve the path for the application
+    // For example, /Applications/test.app
+    CFURLRef url = (CFURLRef)CFBridgingRetain([NSURL fileURLWithPath:appPath]);
+    
+    // Create a reference to the shared file list.
+    // We are adding it to the current user only.
+    // If we want to add it all users, use
+    // kLSSharedFileListGlobalLoginItems instead of
+    //kLSSharedFileListSessionLoginItems
+    LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL,
+                                                            kLSSharedFileListSessionLoginItems, NULL);
+    if (loginItems)
+    {
+        //Insert an item to the list.
+        LSSharedFileListItemRef item = LSSharedFileListInsertItemURL(loginItems,
+                                                                     kLSSharedFileListItemLast, NULL, NULL,
+                                                                     url, NULL, NULL);
+        if (item)
+        {
+            CFRelease(item);
+        }
+    }
+    
+    CFRelease(loginItems);
+}
+
+- (void)deleteAppFromLoginItem
+{
+    NSString *appPath = [[NSBundle mainBundle] bundlePath];
+    
+    // This will retrieve the path for the application
+    // For example, /Applications/test.app
+    CFURLRef url = (CFURLRef)CFBridgingRetain([NSURL fileURLWithPath:appPath]);
+    
+    // Create a reference to the shared file list.
+    LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL,
+                                                            kLSSharedFileListSessionLoginItems, NULL);
+    
+    if (loginItems)
+    {
+        UInt32 seedValue;
+        //Retrieve the list of Login Items and cast them to
+        // a NSArray so that it will be easier to iterate.
+        NSArray  *loginItemsArray = (NSArray *)CFBridgingRelease(LSSharedFileListCopySnapshot(loginItems, &seedValue));
+
+        for(int i = 0; i< [loginItemsArray count]; i++)
+        {
+            LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)CFBridgingRetain([loginItemsArray
+                                                                        objectAtIndex:i]);
+            //Resolve the item with URL
+            if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+                NSString * urlPath = [(NSURL*)CFBridgingRelease(url) path];
+                if ([urlPath compare:appPath] == NSOrderedSame){
+                    LSSharedFileListItemRemove(loginItems,itemRef);
+                }
+            }
+        }
+    }
 }
 
 @end
