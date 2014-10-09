@@ -32,7 +32,7 @@
 
 - (void)addAppAsLoginItem
 {
-    NSString * appPath = [[NSBundle mainBundle] bundlePath];
+    NSString *appPath = [[NSBundle mainBundle] bundlePath];
     
     // This will retrieve the path for the application
     // For example, /Applications/test.app
@@ -84,7 +84,8 @@
             LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)CFBridgingRetain([loginItemsArray
                                                                                          objectAtIndex:i]);
             //Resolve the item with URL
-            if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+            if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr)
+            {
                 NSString * urlPath = [(NSURL*)CFBridgingRelease(url) path];
                 if ([urlPath compare:appPath] == NSOrderedSame){
                     LSSharedFileListItemRemove(loginItems,itemRef);
@@ -93,6 +94,5 @@
         }
     }
 }
-
 
 @end
