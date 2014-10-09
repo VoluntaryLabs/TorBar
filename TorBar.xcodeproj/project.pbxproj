@@ -115,10 +115,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAE3CFF519E4B76700B1B761 /* FoundationCategoriesKit.framework in Frameworks */,
-				AAE3CFEA19E4B4DD00B1B761 /* SystemInfoKit.framework in Frameworks */,
 				AA9AA5E419BAE03E00B5B498 /* SystemConfiguration.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				AAE3CFF519E4B76700B1B761 /* FoundationCategoriesKit.framework in Frameworks */,
+				AAE3CFEA19E4B4DD00B1B761 /* SystemInfoKit.framework in Frameworks */,
 				AA0217CA19B9E6A3008C9ADB /* TorServerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

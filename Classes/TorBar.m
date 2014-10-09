@@ -127,6 +127,7 @@
 
 - (IBAction)quit:(id)sender
 {
+    [_torProcess terminate];
     [NSApplication.sharedApplication terminate:self];
 }
 
