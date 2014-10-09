@@ -15,6 +15,7 @@
 		AA9AA5E119BADFDA00B5B498 /* TorBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5DE19BADFDA00B5B498 /* TorBar.m */; };
 		AA9AA5E219BADFDA00B5B498 /* TorBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */; };
 		AA9AA5E419BAE03E00B5B498 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9AA5E319BAE03E00B5B498 /* SystemConfiguration.framework */; };
+		AAA0BF2E19E6396E0013FBF5 /* NSApplication+LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA0BF2D19E6396E0013FBF5 /* NSApplication+LoginItem.m */; };
 		AAD0C08419E371E800B24217 /* TorServerKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE0D7AB19B9CF7F00D7E85F /* TorServerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAE3CFEA19E4B4DD00B1B761 /* SystemInfoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */; };
 		AAE3CFEB19E4B4F000B1B761 /* SystemInfoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -99,6 +100,8 @@
 		AA9AA5DF19BADFDA00B5B498 /* TorBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorBarDelegate.h; path = Classes/TorBarDelegate.h; sourceTree = "<group>"; };
 		AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorBarDelegate.m; path = Classes/TorBarDelegate.m; sourceTree = "<group>"; };
 		AA9AA5E319BAE03E00B5B498 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		AAA0BF2C19E6396E0013FBF5 /* NSApplication+LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSApplication+LoginItem.h"; path = "Classes/NSApplication+LoginItem.h"; sourceTree = "<group>"; };
+		AAA0BF2D19E6396E0013FBF5 /* NSApplication+LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+LoginItem.m"; path = "Classes/NSApplication+LoginItem.m"; sourceTree = "<group>"; };
 		AAE0D7A519B9CF7F00D7E85F /* TorServerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TorServerKit.xcodeproj; path = submodules/TorServerKit/TorServerKit.xcodeproj; sourceTree = "<group>"; };
 		AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SystemInfoKit.xcodeproj; path = submodules/SystemInfoKit/SystemInfoKit.xcodeproj; sourceTree = "<group>"; };
 		AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = submodules/FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				AA9AA5DE19BADFDA00B5B498 /* TorBar.m */,
 				AA9AA5DF19BADFDA00B5B498 /* TorBarDelegate.h */,
 				AA9AA5E019BADFDA00B5B498 /* TorBarDelegate.m */,
+				AAA0BF2C19E6396E0013FBF5 /* NSApplication+LoginItem.h */,
+				AAA0BF2D19E6396E0013FBF5 /* NSApplication+LoginItem.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA0BF2E19E6396E0013FBF5 /* NSApplication+LoginItem.m in Sources */,
 				AA9AA5E219BADFDA00B5B498 /* TorBarDelegate.m in Sources */,
 				AA9AA5E119BADFDA00B5B498 /* TorBar.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
