@@ -22,7 +22,6 @@
 		AAE3CFEB19E4B4F000B1B761 /* SystemInfoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE3CFE719E4B4B500B1B761 /* SystemInfoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAE3CFF519E4B76700B1B761 /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE3CFF219E4B63A00B1B761 /* FoundationCategoriesKit.framework */; };
 		AAE3CFF619E4B76C00B1B761 /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE3CFF219E4B63A00B1B761 /* FoundationCategoriesKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F6ACF3EA165FF50400C0113D /* AppIcon.tif in Resources */ = {isa = PBXBuildFile; fileRef = F6ACF3E9165FF50400C0113D /* AppIcon.tif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +106,6 @@
 		AAE0D7A519B9CF7F00D7E85F /* TorServerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TorServerKit.xcodeproj; path = submodules/TorServerKit/TorServerKit.xcodeproj; sourceTree = "<group>"; };
 		AAE3CFE119E4B4B500B1B761 /* SystemInfoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SystemInfoKit.xcodeproj; path = submodules/SystemInfoKit/SystemInfoKit.xcodeproj; sourceTree = "<group>"; };
 		AAE3CFEC19E4B63A00B1B761 /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = submodules/FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
-		F6ACF3E9165FF50400C0113D /* AppIcon.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = AppIcon.tif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				AAA0BF4A19E6410A0013FBF5 /* Images.xcassets */,
-				F6ACF3E9165FF50400C0113D /* AppIcon.tif */,
 				8D1107310486CEB800E47090 /* TorBar-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -353,7 +350,6 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				AAA0BF4B19E6410A0013FBF5 /* Images.xcassets in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				F6ACF3EA165FF50400C0113D /* AppIcon.tif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

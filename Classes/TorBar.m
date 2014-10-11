@@ -149,7 +149,7 @@
     if (_torProcess.isRunning)
     {
         mainStatus = @"Tor On";
-        status = [NSString stringWithFormat:@"Run On (%@)", _networkMonitor.ssid];
+        status = [NSString stringWithFormat:@"Run Tor While On %@", _networkMonitor.ssid];
         
         /*
         NSNumber *bps = _torProcess.bpsRead;
@@ -175,7 +175,7 @@
         else
         {
             mainStatus = @"Tor Off";
-            status = [NSString stringWithFormat:@"Run On (%@)", _networkMonitor.ssid];
+            status = [NSString stringWithFormat:@"Run Tor While On %@", _networkMonitor.ssid];
             [_toggleMenuItem setState:NSOffState];
             [_toggleMenuItem setEnabled:YES];
         }
