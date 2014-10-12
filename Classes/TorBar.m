@@ -92,6 +92,7 @@
     
     NSBundle *mainBundle = [NSBundle mainBundle];
     _torProcess = [[TorProcess alloc] init];
+    _torProcess.runAsRelay = YES;
     _torProcess.torPort = [mainBundle objectForInfoDictionaryKey:@"TorPort"];
     _torProcess.serverDataFolder = dataPath;
 }
@@ -270,6 +271,5 @@
     [NSApplication.sharedApplication setLaunchesOnLogin:!NSApplication.sharedApplication.launchesOnLogin];
     [self updateLaunchMenuItem];
 }
-
 
 @end
