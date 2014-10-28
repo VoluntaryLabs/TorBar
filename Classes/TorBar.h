@@ -21,5 +21,6 @@
 @property (strong) SINetworkMonitor *networkMonitor;
 @property (strong) NSTimer *updateTimer;
 @property (strong) NSMenuItem *toggleMenuItem;
+//@property (strong) NSMenuItem *statusMenuItem;
 
 @end

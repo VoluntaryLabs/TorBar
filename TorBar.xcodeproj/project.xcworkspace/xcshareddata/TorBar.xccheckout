@@ -11,29 +11,29 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4DE41FEEEAE7CC654240CA8A6C6B99C937943D6B</key>
-		<string>ssh://github.com/Voluntarynet/TorServerKit.git</string>
+		<string>github.com:Voluntarynet/TorServerKit.git</string>
 		<key>AE54CF568057E049D07E8D7A462718F01736434E</key>
 		<string>github.com:Voluntarynet/SystemInfoKit.git</string>
 		<key>AFA010B2AB4625873F2592DCCC4CE8CF6644EDF9</key>
-		<string>ssh://github.com/Voluntarynet/TorBar.git</string>
+		<string>github.com:Voluntarynet/TorBar.git</string>
 		<key>EAAFDC9479D1EB80E5F305F4B217979549BDCF86</key>
-		<string>ssh://github.com/stevedekorte/FoundationCategoriesKit.git</string>
+		<string>github.com:Voluntarynet/FoundationCategoriesKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TorBar.xcodeproj/project.xcworkspace</string>
+	<string>TorBar.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4DE41FEEEAE7CC654240CA8A6C6B99C937943D6B</key>
-		<string>../../submodules/TorServerKit</string>
+		<string>../..submodules/TorServerKit/</string>
 		<key>AE54CF568057E049D07E8D7A462718F01736434E</key>
-		<string>../../submodules/SystemInfoKit</string>
+		<string>../..submodules/SystemInfoKit/</string>
 		<key>AFA010B2AB4625873F2592DCCC4CE8CF6644EDF9</key>
 		<string>../..</string>
 		<key>EAAFDC9479D1EB80E5F305F4B217979549BDCF86</key>
-		<string>../../submodules/FoundationCategoriesKit</string>
+		<string>../..submodules/FoundationCategoriesKit/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/Voluntarynet/TorBar.git</string>
+	<string>github.com:Voluntarynet/TorBar.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

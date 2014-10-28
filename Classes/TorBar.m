@@ -60,6 +60,16 @@
     NSMenu *menu = [[NSMenu alloc] initWithTitle:@"StatusMenu"];
     [_statusItem setMenu:menu];
     
+    {
+        NSDictionary *info = [NSBundle bundleForClass:[self class]].infoDictionary;
+        NSString *bundleVersion = [info objectForKey:@"CFBundleVersion"];
+        NSString *versionString = [NSString stringWithFormat:@"TorBar Version %@", bundleVersion];
+        NSMenuItem *versionMenuItem = [[NSMenuItem alloc] initWithTitle:versionString action:nil keyEquivalent:@""];
+        [versionMenuItem setTarget:nil];
+        [menu addItem:versionMenuItem];
+        [versionMenuItem setEnabled:NO];
+    }
+    
     _toggleMenuItem = [[NSMenuItem alloc] initWithTitle:@"Run Tor" action:@selector(toggleTorRunning) keyEquivalent:@""];
     [_toggleMenuItem setTarget:self];
     [menu addItem:_toggleMenuItem];
@@ -69,6 +79,15 @@
     [_launchMenuItem setTarget:self];
     [menu addItem:_launchMenuItem];
     [self updateLaunchMenuItem];
+
+
+    
+    /*
+    _statusMenuItem = [[NSMenuItem alloc] initWithTitle:@"Status" action:@selector(status:) keyEquivalent:@""];
+    [_statusMenuItem setTarget:nil];
+    [menu addItem:_statusMenuItem];
+    [_statusMenuItem setEnabled:NO];
+    */
     
     NSMenuItem *quitMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
     [quitMenuItem setTarget:self];
@@ -88,13 +107,8 @@
 
 - (void)setupTor
 {
-    NSString *dataPath = [NSString stringWithString:[[NSFileManager defaultManager] applicationSupportDirectory]];
-    
-    NSBundle *mainBundle = [NSBundle mainBundle];
     _torProcess = [[TorProcess alloc] init];
     _torProcess.runAsRelay = YES;
-    _torProcess.torPort = [mainBundle objectForInfoDictionaryKey:@"TorPort"];
-    _torProcess.serverDataFolder = dataPath;
 }
 
 // menu actions
@@ -150,7 +164,7 @@
     if (_torProcess.isRunning)
     {
         mainStatus = @"Tor On";
-        status = [NSString stringWithFormat:@"Run Tor While On %@", _networkMonitor.ssid];
+        status = [NSString stringWithFormat:@"Run Tor While On '%@'", _networkMonitor.ssid];
         
         /*
         NSNumber *bps = _torProcess.bpsRead;
